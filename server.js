@@ -3,11 +3,12 @@ const router = express.Router();
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 const creds = require("./config");
+require("dotenv").config();
 var transport = {
 	service: "gmail",
 	auth: {
-		user: creds.USER,
-		pass: creds.PASS,
+		user: process.env.EMAIL,
+		pass: process.env.PASSWORD,
 	},
 	tls: {
 		rejectUnauthorized: false,
