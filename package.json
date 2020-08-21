@@ -1,0 +1,25 @@
+{
+	"name": "contact-form",
+	"version": "1.0.0",
+	"description": "A contact form API",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.17.1",
+		"nodemailer": "^6.4.10"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/SolomonYakubu/contact-form-api.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/SolomonYakubu/contact-form-api/issues"
+	},
+	"homepage": "https://github.com/SolomonYakubu/contact-form-api#readme"
+}
