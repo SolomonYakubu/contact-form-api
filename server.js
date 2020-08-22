@@ -4,6 +4,7 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 
 require("dotenv").config();
+
 const transport = {
 	service: "gmail",
 	auth: {
@@ -31,7 +32,8 @@ router.post("/send", (req, res, next) => {
 	const mail = {
 		from: name,
 		to: "soloyaks.sy@gmail.com",
-		subject: "New message from website",
+		subject: "New message from your Website",
+
 		html: content,
 	};
 	transporter.sendMail(mail, (err, data) => {
