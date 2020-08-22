@@ -27,7 +27,7 @@ router.post("/send", (req, res, next) => {
 	const name = req.body.name;
 	const email = req.body.email;
 	const message = req.body.message;
-	const content = `<h3 style = "font size:18px">Message from <b>${name}</b></h3><p style = "font size:11px">${email}</p><p style = "font size:14px">${message}</p>`;
+	const content = `<h4 style = "font-size:18px">Message from <strong>${name}</strong></h3><p style = "font-size:11px">${email}</p><p style = "font-size:14px">${message}</p>`;
 
 	const mail = {
 		from: name,
