@@ -4,17 +4,17 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 
 require("dotenv").config();
-var transport = {
+const transport = {
 	service: "gmail",
 	auth: {
-		user: "soloyaks.sy@gmail.com",
-		pass: "adavsy34",
+		user: process.env.EMAIL,
+		pass: process.env.PASSWORD,
 	},
 	tls: {
 		rejectUnauthorized: false,
 	},
 };
-var transporter = nodemailer.createTransport(transport);
+const transporter = nodemailer.createTransport(transport);
 transporter.verify((error, success) => {
 	if (error) {
 		console.log(error);
@@ -23,16 +23,16 @@ transporter.verify((error, success) => {
 	}
 });
 router.post("/send", (req, res, next) => {
-	var name = req.body.name;
-	var email = req.body.email;
-	var message = req.body.message;
-	var content = `${name}\n\n${email}\n\n${message}`;
+	const name = req.body.name;
+	const email = req.body.email;
+	const message = req.body.message;
+	const content = `<h3 style = "font size:18px">Message from <b>${name}</b></h3><p style = "font size:11px">${email}</p><p style = "font size:14px">${message}</p>`;
 
-	var mail = {
+	const mail = {
 		from: name,
 		to: "soloyaks.sy@gmail.com",
 		subject: "New message from website",
-		text: content,
+		html: content,
 	};
 	transporter.sendMail(mail, (err, data) => {
 		if (err) {
