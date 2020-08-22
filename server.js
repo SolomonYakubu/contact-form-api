@@ -7,8 +7,8 @@ require("dotenv").config();
 var transport = {
 	service: "gmail",
 	auth: {
-		user: process.env.EMAIL,
-		pass: process.env.PASSWORD,
+		user: "soloyaks.sy@gmail.com",
+		pass: "adavsy34",
 	},
 	tls: {
 		rejectUnauthorized: false,
