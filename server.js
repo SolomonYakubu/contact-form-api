@@ -40,7 +40,7 @@ router.post("/send", (req, res, next) => {
 		from: "Yakubu Solomon",
 		to: email,
 		subject: "Yakubu Solomon",
-		html: `<div style = 'font-size:16px; border-style:solid;border-width:2px;padding:10px; border-color:indigo;font-weight:300;font-family:verdana'><p>Hello ${name}, your message was received and would be responded to shortly. <p>Best Regards.</p></p><p>Yakubu Solomon.</p></div>`,
+		html: `<div style = 'font-size:16px; border-style:solid;border-width:2px;padding:10px; border-color:indigo;font-weight:500;font-family:verdana'><p>Hi ${name}, your message was received and would be responded to shortly. <p>Best Regards.</p></p><p>Yakubu Solomon.</p></div>`,
 	};
 	transporter.sendMail(mail, (err, data) => {
 		if (err) {
