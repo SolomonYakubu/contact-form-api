@@ -8,8 +8,8 @@ const OAuth2 = google.auth.OAuth2;
 require("dotenv").config();
 
 const myOAuth2Client = new OAuth2(
-	"202389726929-45ae64353usg0pami6u4a799sr2g0aqa.apps.googleusercontent.com",
-	"kl4wQckqCgPhSl2zJJjjSQon",
+	process.env.CLIENT_ID,
+	process.env.CLIENT_SECRET,
 	"https://developers.google.com/oauthplayground",
 );
 
@@ -23,9 +23,8 @@ const transport = {
 	auth: {
 		type: "OAuth2",
 		user: process.env.EMAIL,
-		clientId:
-			"202389726929-45ae64353usg0pami6u4a799sr2g0aqa.apps.googleusercontent.com",
-		clientSecret: "kl4wQckqCgPhSl2zJJjjSQon",
+		clientId: process.env.CLIENT_ID,
+		clientSecret: process.env.CLIENT_SECRET,
 		refreshToken:
 			"1//04ax8WEsJJb90CgYIARAAGAQSNwF-L9IrLuz0dlXgHysLSljDdMkd_ZOsLq7agECSN75evyG1Vrhm5E7IpWXP0mDJePMbV34V_HM",
 		accessToken: myAccessToken,
