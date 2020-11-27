@@ -44,9 +44,9 @@ router.post("/send", (req, res, next) => {
 	};
 	transporter.sendMail(mail, (err, data) => {
 		if (err) {
-			res.json({ status: "fail" });
+			res.status(500).json({ status: "fail" });
 		} else {
-			res.json({
+			res.status(200).json({
 				status: "success",
 			});
 			transporter.sendMail(reply, (err, data) => {
