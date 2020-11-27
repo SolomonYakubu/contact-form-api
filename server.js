@@ -2,14 +2,33 @@ const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
 const cors = require("cors");
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
 
 require("dotenv").config();
 
+const myOAuth2Client = new OAuth2(
+	"202389726929-45ae64353usg0pami6u4a799sr2g0aqa.apps.googleusercontent.com",
+	"kl4wQckqCgPhSl2zJJjjSQon",
+	"https://developers.google.com/oauthplayground",
+);
+
+myOAuth2Client.setCredentials({
+	refresh_token:
+		"1//04ax8WEsJJb90CgYIARAAGAQSNwF-L9IrLuz0dlXgHysLSljDdMkd_ZOsLq7agECSN75evyG1Vrhm5E7IpWXP0mDJePMbV34V_HM",
+});
+const myAccessToken = myOAuth2Client.getAccessToken();
 const transport = {
 	service: "gmail",
 	auth: {
+		type: "OAuth2",
 		user: process.env.EMAIL,
-		pass: process.env.PASSWORD,
+		clientId:
+			"202389726929-45ae64353usg0pami6u4a799sr2g0aqa.apps.googleusercontent.com",
+		clientSecret: "kl4wQckqCgPhSl2zJJjjSQon",
+		refreshToken:
+			"1//04ax8WEsJJb90CgYIARAAGAQSNwF-L9IrLuz0dlXgHysLSljDdMkd_ZOsLq7agECSN75evyG1Vrhm5E7IpWXP0mDJePMbV34V_HM",
+		accessToken: myAccessToken,
 	},
 	tls: {
 		rejectUnauthorized: false,
